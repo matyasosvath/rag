@@ -45,6 +45,10 @@ https://arxiv.org/pdf/1706.03762
 ---------
 
 
+add high level overview
+
+add separate pipeline for adding documents to elasticsearch vector store
+
 ES indoklás
 Docker indoklás
 TGI indoklás

@@ -45,7 +45,7 @@ services:
       timeout: 5s
       retries: 120
 
-  es01:
+  es01: # suggestion: add nodes as necessary
     depends_on:
       setup:
         condition: service_healthy
@@ -88,24 +88,24 @@ services:
       timeout: 10s
       retries: 120
 
-  # generation-service:
-  #   image: ${GENERATION_SERVICE_IMAGE}
-  #   build:
-  #     context: ../generation-service
-  #   restart: "no"
-  #   ports:
-  #     - "8080:80"
-  #   volumes: # recommendation: add volume to avoid downloading weights multiple times
-  #     - "generation-data:/data"
-  #   deploy:
-  #     resources: # suggestion: set CPU, GPU for optimal performance ~ lower cost
-  #       reservations:
-  #         cpus: '1'
-  #         memory: '1G'
-  #         devices:
-  #         - driver: nvidia
-  #           device_ids: ['1', '2']
-  #           capabilities: [gpu]
+  generation-service:
+    image: ${GENERATION_SERVICE_IMAGE}
+    build:
+      context: ../generation-service
+    restart: "no"
+    ports:
+      - "8080:80"
+    volumes: # recommendation: add volume to avoid downloading weights multiple times
+      - "generation-data:/data"
+    deploy:
+      resources: # suggestion: set CPU, GPU for optimal performance ~ lower cost
+        reservations:
+          cpus: '10'
+          memory: '30G'
+          # devices:
+          # - driver: nvidia
+          #   device_ids: ['1', '2']
+          #   capabilities: [gpu]
 
 volumes:
   certs:
