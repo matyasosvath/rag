@@ -4,7 +4,7 @@
 
 Implementálj egy Retrieval-Augmented Generation (RAG) alapú alkalmazást, amely különböző forrásokból származó adatokból tud kérdésekre válaszolni. A feladat egy Q&A pipeline megvalósítása, amelyet tetszőlegesen összetett komponensekből építhetsz fel.
 
-## Adatok
+## Adatok
 
 Bármilyen szöveges tartalmat felhasználhatsz adatbázis létrehozásához, legyen az egy vagy több PDF, vagy akár egy Kaggle dataset. Az adatfeldolgozás mennyisége nem elsődleges szempont; a minőség és skálázhatóság fontosabb.
 
@@ -13,7 +13,7 @@ Bármilyen szöveges tartalmat felhasználhatsz adatbázis létrehozásához, le
 https://huggingface.co/datasets/legacy-datasets/wikipedia
 https://arxiv.org/pdf/1706.03762
 
-## Technikai részletek
+## Technikai részletek
 
 - Programozási nyelv: Python
 
@@ -53,7 +53,11 @@ Backend indoklás:
 
 Backend & llm különböző service
 
+architektúra a legfontosabb, fontosabb mint a Python
 
+docker konténerek használata, kerék nem újrafeltalálása
+
+lehetett volnaa hugginface beépített rag komponenseit használni, de minél részletesebb rag rendszer kell annál jobb ha bármely részt finomítani, felügyelni tudjuk vagy cserélni.
 
 Javaslatok
 - Konténerek feltöltése egy közös registry-be.
