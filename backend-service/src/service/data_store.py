@@ -3,7 +3,6 @@ from typing import List, Optional
 
 from elasticsearch import Elasticsearch
 from src import typing
-from src.logging import logging
 
 
 def retrieve_context(

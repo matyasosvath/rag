@@ -9,7 +9,7 @@ from src.service import rag
 app = FastAPI()
 
 
-# helper.log_startup_diagnostics()
+helper.log_startup_diagnostics()
 
 
 @app.exception_handler(Exception)
