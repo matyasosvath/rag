@@ -66,3 +66,6 @@ lehetett volnaa hugginface beépített rag komponenseit használni, de minél r�
 Javaslatok
 - Konténerek feltöltése egy közös registry-be.
 
+
+
+

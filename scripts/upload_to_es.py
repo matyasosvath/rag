@@ -17,7 +17,7 @@ INDEX_MAPPING_PATH = "wikipedia.mapping.json"
 def create_connection() -> Elasticsearch:
 
     port = os.getenv("PORT", "9234")
-    host = os.getenv("PORT", "localhost")
+    host = os.getenv("HOST", "localhost")
     user_name = os.getenv("ES_USERNAME", "elastic")
     password = os.getenv("ES_USERNAME", "elasticpass")
     # api key and cert usage is recommended instead
@@ -66,5 +66,6 @@ def main() -> None:
 if __name__ == "__main__":
     # to the reviewer, if anything goes wrong, you can reset
     # curl --insecure -u elastic:elasticpass  -X DELETE https://localhost:9234/wikipedia
+    
 
     main()

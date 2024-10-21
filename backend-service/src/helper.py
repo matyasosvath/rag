@@ -1,13 +1,10 @@
+import os
+import time
 from typing import Union
 
-import time
-
-import os
 import torch
-
-from src.logging import logger
 from src import typing
-
+from src.logging import logger
 
 NUM_WORKERS = os.cpu_count()
 NUM_GPUS = torch.cuda.device_count()
@@ -42,7 +39,7 @@ def get_memory_alloc(device: Union[str, torch.device], divisor: int = 1024 ** 3)
     return memory_allocated
 
 
-def record_start_time(model_name: typing.Models, inference: bool = False) -> float:
+def record_start_time(model_name: typing.Models) -> float:
     start_time = time.time()
     logger.info(f"Model {model_name} started inference!")
     return start_time

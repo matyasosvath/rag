@@ -1,18 +1,15 @@
 import traceback
+
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-
-import version
-
-from src.logging import logger
 from src import helper, typing
+from src.logging import logger
 from src.service import rag
-
 
 app = FastAPI()
 
 
-helper.log_startup_diagnostics()
+# helper.log_startup_diagnostics()
 
 
 @app.exception_handler(Exception)
@@ -25,13 +22,10 @@ async def exception_handler(req, exc):
 @app.get('/')
 @app.get('/info')
 def info():
-    return {"version": version}
+    return {"version": "0.0.1"}
 
 
 @app.post('/question/{model_name}')
 def generate(model_name: typing.RagModels, question: typing.Question):
     result = rag.inference(model_name, question)
     return {"result": result}
-
-
-

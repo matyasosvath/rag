@@ -107,6 +107,21 @@ services:
           #   device_ids: ['1', '2']
           #   capabilities: [gpu]
 
+  backend:
+    image: ${BACKEND_IMAGE}
+    build:
+      context: ../backend-service
+    restart: "no"
+    ports:
+      - "5001:5000"
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          cpus: '2'
+          memory: '1G'
+
 volumes:
   certs:
     driver: local

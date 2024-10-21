@@ -1,25 +1,21 @@
-from typing import Any
-
 import gc
 import traceback
-from datetime import datetime
+from typing import Any
 
 import torch
-
-from src.logging import logger
 from src import helper, typing
-from src.service import data_store
-from src.service import generation
+from src.logging import logger
+from src.service import data_store, generation
 
 
 def inference(model_name: typing.RagModels, input: typing.Question) -> Any:
 
-    start_time = helper.record_start_time(model_name, inference=True)
+    start_time = helper.record_start_time(model_name)
 
     try:
 
         context = data_store.retrieve_context(input)
-        result = generation.generate(input.text, context)
+        # result = generation.generate(input.text, context)
 
     except torch.cuda.OutOfMemoryError as e:
 
@@ -28,14 +24,14 @@ def inference(model_name: typing.RagModels, input: typing.Question) -> Any:
 
         raise torch.cuda.OutOfMemoryError
 
-    finally:
+    finally: pass
 
-        torch.cuda.empty_cache()
-        gc.collect()
-        helper.log_memory_usage()
+        # torch.cuda.empty_cache()
+        # gc.collect()
+        # helper.log_memory_usage()
 
-    total_time = helper.log_completion_time(model_name, start_time, inference=True)
+    helper.log_completion_time(model_name, start_time)
 
     # suggestion: insert question, context and answert to a database for later analysis
 
-    return result
+    return context
