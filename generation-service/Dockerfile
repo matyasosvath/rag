@@ -2,7 +2,7 @@ FROM ghcr.io/huggingface/text-generation-inference:2.3.1
 RUN mkdir -p /data
 WORKDIR /data
 EXPOSE 80
-CMD ["--model-id", "meta-llama/Llama-2-7b", "-p", "80", "-e", "HF_TOKEN=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"]
+CMD ["--model-id", "openai-community/gpt2", "-p", "80"]
 
 # note: used small model for quick test and iteration, but use large model for prod, e.g llama or mistral
 

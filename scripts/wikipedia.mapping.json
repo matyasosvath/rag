@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 2,
+      "number_of_replicas": 1
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "title": {
+        "type": "text"
+      },
+      "text": {
+        "type": "text",
+        "analyzer": "standard",
+        "similarity": "BM25"
+      },
+      "language": {
+        "type": "keyword"
+      }
+    }
+  }
+}
