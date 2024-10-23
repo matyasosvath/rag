@@ -25,9 +25,6 @@ def generate(text: str, context: str):
     if response.status_code != 200: # should be custom exception
         raise ValueError("Generation failed!")
 
-    print(f"Status Code: {response.status_code}")
-    print(f"Response Body: {response.text}")
-
     result = response.text
 
     result = json.loads(result)["generated_text"]
