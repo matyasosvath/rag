@@ -14,8 +14,6 @@ def retrieve_context(
 
     es_client = create_connection()
 
-    print(f"ES: {es_client}")
-
     documents = search(es_client, input.text, index_name, similarity)
 
     return " ".join(doc for doc in documents[:top_k])
